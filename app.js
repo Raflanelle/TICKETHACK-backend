@@ -7,6 +7,7 @@ const cors = require('cors');
 var indexRouter = require('./routes/index');
 const tripsRouter = require('./routes/trips');
 const cartsRouter = require('./routes/carts');
+const bookingRouter = require('./routes/booking');
 
 require('./models/connection');
 
@@ -22,5 +23,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/trips', tripsRouter);
 app.use('/carts', cartsRouter);
+app.use('/booking', bookingRouter);
 
 module.exports = app;
