@@ -28,9 +28,11 @@ router.post('/', (req, res) => {
 //récupère les trajets et renvoie une réponse au frontend
 router.get('/', (req, res) => {
     Booking.find().then(trajetPaye => {
-        res.json({trajets: trajetPaye})
-            console.log(trajetPaye)
-
+        if (!trajetPaye[0]) {
+            res.json({result: false});
+        } else {
+            res.json({result: true, trajets: trajetPaye})
+        }
     })
 })
 
